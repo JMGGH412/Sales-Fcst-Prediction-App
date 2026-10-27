@@ -42,7 +42,7 @@ product_data = {
 if st.button("Predict", type='primary'):
 
     response = requests.post(
-        f"{BACKEND_URL}/v1/predict",
+        f"{BACKEND_URL.rstrip('/')}/v1/predict",
         json=product_data
     )
 
@@ -66,7 +66,7 @@ if uploaded_file is not None:
     if st.button("Predict for Batch", type='primary'):
 
         response = requests.post(
-            f"{BACKEND_URL}/v1/predictbatch",
+            f"{BACKEND_URL.rstrip('/')}/v1/predictbatch",
             files={"file": uploaded_file}
         )
 
